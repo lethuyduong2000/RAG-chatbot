@@ -39,7 +39,7 @@ class ChromaRetriever:
     
     def format_docs(self,docs):
         if not docs["metadatas"]:
-                return "No matching products found."
+            return "No matching products found."
 
         return "\n\n".join([
             '\n'.join([res.get('name', 'No Name'), res.get("product_style", 'No Style')]) 
