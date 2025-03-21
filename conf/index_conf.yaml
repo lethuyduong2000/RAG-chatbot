@@ -1,0 +1,6 @@
+chrome_db_collection: "new_documents"
+db_path: "notebook/chroma_db_v1"
+
+# Model Settings
+# embed_model: "all-MiniLM-L6-v2"
+embed_model: "paraphrase-multilingual-mpnet-base-v2"
