@@ -71,6 +71,6 @@ if __name__ == "__main__":
     # settings = Settings()
     uvicorn.run(
         "src.api.main:app",
-        host="0.0.0.0", port=5000, # host=settings.HOST, # port=settings.PORT,
+        host="127.0.0.1", port=8000, # host=settings.HOST, # port=settings.PORT,
         reload=True
     )
