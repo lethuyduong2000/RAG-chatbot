@@ -1,10 +1,16 @@
+import os 
 import streamlit as st
 import requests
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
 
+load_dotenv()
+SENDER_EMAIL = os.getenv("sender_email")
+SENDER_PASSWORD = os.getenv("sender_password")
 
+print(SENDER_EMAIL, SENDER_PASSWORD)
 # FastAPI backend URL
 API_URL = "http://127.0.0.1:8000/chat"
 
@@ -58,13 +64,24 @@ def vote(item):
     if st.button("Submit"):
         st.session_state.vote = {"item": item, "reason": reason}
         st.rerun()
-def send_confirmation_email(to_email, name):
-    sender_email = "lethuyduong2000@gmail.com"
-    sender_password = "rday pgdh supq kjgp"
+def send_confirmation_email(to_email, name, address, product_id):
+    sender_email = SENDER_EMAIL
+    sender_password = SENDER_PASSWORD
 
-    subject = "Xác nhận đơn hàng từ Namperfume"
+    subject = "Xác nhận đơn hàng từ DTN perfume"
     body = f"""
-    Xin chào {name}
+    Xin chào {name},
+
+    Cảm ơn bạn đã đặt hàng tại DTN perfume! 
+    Chúng tôi đã nhận được đơn hàng với thông tin giao hàng:
+
+    Họ tên: {name}
+    Địa chỉ: {address}
+    Mã sản phẩm: {product_id}
+    Đơn hàng của bạn đang được xử lý và sẽ sớm được giao đến bạn.
+
+    Trân trọng,
+    Đội ngũ DTN perfume.
     """
     message = MIMEMultipart()
     message["From"] = sender_email
@@ -117,18 +134,20 @@ if st.session_state.order_confirmed:
         st.markdown("### 🧾 Thông tin đặt hàng")
 
         with st.form("order_form"):
+            product_id = st.text_input("ID sản phẩm")
             name = st.text_input("Họ và tên")
             email = st.text_input("Email")
             address = st.text_area("Địa chỉ giao hàng")
 
-            submitted = st.form_submit_button("Gửi đơn hàng")
+            submitted = st.form_submit_button("Chốt đơn")
             if submitted:
-                st.success("✅ Đã gửi đơn hàng thành công!")
+                st.success("✅ Đã mail thành công!")
                 st.session_state.order_confirmed = False
 
-                success = send_confirmation_email(email, name)
+                success = send_confirmation_email(email, name, address, product_id)
                 if success:
-                    st.success("✅ Đã gửi đơn hàng và email xác nhận thành công!")
+                    # st.success("✅ Đã gửi đơn hàng và email xác nhận thành công!")
+                    st.toast("✅ Đã gửi email thành công!", icon="🎉")
                 else:
                     st.error("❌ Gửi email thất bại. Vui lòng thử lại.")
                 st.session_state.order_confirmed = False
