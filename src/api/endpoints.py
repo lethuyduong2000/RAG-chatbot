@@ -114,7 +114,6 @@ def get_product_recommendations(descriptions, retriever):
     
     return recommendations
 
-# Function to rank the best perfumes
 def rank_products(generator, descriptions, products):
     prompt_ranking = """
     Dưới đây là danh sách sản phẩm nước hoa gợi ý dựa trên mô tả khách hàng.
@@ -129,6 +128,24 @@ def rank_products(generator, descriptions, products):
     
     return generator.generate("", prompt_ranking)
 
+def product_description(id, metadata):
+    return f"""
+    ------------
+    ID: {id}
+    Brand: {metadata['brand']}
+    Name: {metadata['name']}
+    Price: {metadata['price']}
+    Style: {metadata['product_style']}
+    Notes: {metadata['product_note']}
+    Description: {metadata['description']}
+    """
+
+def split_descriptions(text):
+            descriptions = re.split(r'\n\nMô tả \d+:\s*', text)
+            return [desc.strip() for desc in descriptions if desc]
+
+
+
 @app.post("/chat")
 async def chat(request: ChatRequest):
     query = request.query.strip()
@@ -139,14 +156,9 @@ async def chat(request: ChatRequest):
     print(f"User Query: {query}")
 
     generator = GenAIGenerator(model="gemini-2.0-flash")
-
     history_chat.append(f"User: {query}")
 
-    # **BƯỚC 1: Chatbot phản hồi câu hỏi của khách hàng**
-    response = generator.generate(question=query, history=history_chat)
-    history_chat.append(f"ChatBot: {response}")
-
-    if len(history_chat) == 8:  
+    if len(history_chat) == 9:  
         full_text_history = "\n".join(history_chat)
 
         extract_customer_preferences_template = f"""
@@ -167,26 +179,10 @@ async def chat(request: ChatRequest):
         history_chat.append(f"ChatBot (Phân tích sở thích): {response_preferences}")
 
         # **BƯỚC 3: Tìm kiếm sản phẩm nước hoa phù hợp**
-        def split_descriptions(text):
-            descriptions = re.split(r'\n\nMô tả \d+:\s*', text)
-            return [desc.strip() for desc in descriptions if desc]
-
+        
         descriptions = split_descriptions(response_preferences)
         retriever = ChromaRetriever()
         retrieved_docs = [retriever.retrieve(desc) for desc in descriptions]
-
-        # **BƯỚC 4: Định dạng danh sách sản phẩm**
-        def product_description(id, metadata):
-            return f"""
-            ------------
-            ID: {id}
-            Brand: {metadata['brand']}
-            Name: {metadata['name']}
-            Price: {metadata['price']}
-            Style: {metadata['product_style']}
-            Notes: {metadata['product_note']}
-            Description: {metadata['description']}
-            """
 
         product_recommendations = []
         for doc in retrieved_docs:
@@ -195,7 +191,7 @@ async def chat(request: ChatRequest):
 
        
         ranking_prompt = f"""
-        Dưới đây là danh sách nước hoa phù hợp nhất. Chọn ra 3 sản phẩm tốt nhất:
+        Dưới đây là danh sách nước hoa phù hợp nhất. Chọn ra 3 sản phẩm tốt nhất, lưu ý kết quả có kèm ID mỗi sản phẩm:
 
         {response_preferences}
 
@@ -206,9 +202,10 @@ async def chat(request: ChatRequest):
         ranked_response = generator.generate(ranking_prompt)
         history_chat.append(f"ChatBot (Top 3 sản phẩm): {ranked_response}")
         print(f"===Top 3 sản phẩm==={ranked_response}")
-        return {"response": ranked_response}
-
+        return {"response": ranked_response, "rerank": True}
     
+    response = generator.generate(question=query, history=history_chat)
+    history_chat.append(f"ChatBot: {response}")
 
     return {"response": response}
 
