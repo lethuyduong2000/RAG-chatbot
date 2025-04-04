@@ -146,7 +146,7 @@ if st.session_state.order_confirmed:
 
                 success = send_confirmation_email(email, name, address, product_id)
                 if success:
-                    # st.success("✅ Đã gửi đơn hàng và email xác nhận thành công!")
+                    st.success("✅ Đã gửi đơn hàng và email xác nhận thành công!")
                     st.toast("✅ Đã gửi email thành công!", icon="🎉")
                 else:
                     st.error("❌ Gửi email thất bại. Vui lòng thử lại.")
