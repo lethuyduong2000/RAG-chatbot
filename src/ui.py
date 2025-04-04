@@ -25,7 +25,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
     st.session_state.messages.append({
         "role": "assistant", 
-        "content": "Chào bạn! Mình là trợ lý ảo của Namperfume. Bạn muốn tìm nước hoa nào?"
+        "content": "Chào bạn!Mình là trợ lý ảo DTN Assistant. Mình có thể tư vấn gì cho bạn!"
     })
 if "customer_preferences" not in st.session_state:
     st.session_state.customer_preferences = {}
