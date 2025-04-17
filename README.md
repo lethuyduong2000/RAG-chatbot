@@ -122,6 +122,7 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
  _BƯỚC 4:_ Sau khi đã có danh sách sản phẩm chúng tôi thực hiện **Re-ranking** sản phẩm bằng cách sử dụng một LLM khác để chọn ra 3 sản phẩm phù hợp nhất.
 
   **PROMT**
+       
        ```
         Dưới đây là danh sách các sản phẩm nước hoa gợi ý. Nhiệm vụ của bạn là chọn ra 3 sản phầm phù hợp nhất với những thông tin thu thập từ khách hàng
         
