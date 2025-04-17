@@ -18,6 +18,15 @@ RAG-based Chatbot for retail e-commerce
 
 ## Giới thiệu
 
+Việc lựa chọn một loại nước hoa phù hợp thường có thể là một trải nghiệm khó khăn với vô số lựa chọn khác nhau. Khách hàng thường cần tư vấn dựa trên sở thích cá nhân (nhóm hương, dịp sử dụng, độ lưu hương mong muốn), hoặc đơn giản là muốn tìm hiểu thông tin chi tiết về một sản phẩm cụ thể.
+
+Dự án này nhằm giải quyết vấn đề đó bằng cách xây dựng một **Chatbot tư vấn nước hoa thông minh**. Mục tiêu là tạo ra một trợ lý ảo có khả năng:
+
+* Hiểu và trả lời các câu hỏi của khách hàng về sản phẩm nước hoa (ví dụ: thành phần, nhóm hương, độ lưu hương, phù hợp với dịp nào?).
+* Đưa ra gợi ý sản phẩm phù hợp dựa trên mô tả hoặc yêu cầu của khách hàng.
+* Cung cấp thông tin chi tiết gợi ý sản phẩm phù hợp
+
+Bằng cách sử dụng kỹ thuật **Retrieval-Augmented Generation (RAG)** dựa trên dữ liệu đã thu thập, chatbot có thể cung cấp các câu trả lời chính xác và phù hợp với ngữ cảnh, từ đó nâng cao trải nghiệm mua sắm và giúp khách hàng đưa ra quyết định tốt hơn.
 
 ## Workflow Dự án
 
