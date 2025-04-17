@@ -34,12 +34,12 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 - **Mục tiêu:** Xây dựng một hệ thống có khả năng tìm kiếm thông tin liên quan từ kho dữ liệu đã thu thập và sử dụng thông tin đó để tạo ra câu trả lời mạch lạc, chính xác cho câu hỏi của người dùng.
 - **Các bước chính:**
-    1.  **Embedding:** Chuyển đổi dữ liệu văn bản đã thu thập thành các vector embedding sử dụng mô hình [Tên mô hình embedding, ví dụ: sentence-transformers, OpenAI ada-002].
-    2.  **Indexing:** Lưu trữ các vector embedding vào một cơ sở dữ liệu vector (vector database) như [Tên vector DB, ví dụ: FAISS, ChromaDB, Pinecone, Milvus] để tối ưu hóa việc tìm kiếm.
+    1.  **Embedding:** Chuyển đổi dữ liệu văn bản đã thu thập thành các vector embedding sử dụng mô hình **paraphrase-multilingual-mpnet-base-v2**.
+    2.  **Indexing:** Lưu trữ các vector embedding vào cơ sở dữ liệu vector **ChromaDB** để tối ưu hóa việc tìm kiếm.
     3.  **Retrieval:** Khi có câu hỏi từ người dùng, chuyển câu hỏi thành vector embedding và tìm kiếm các đoạn văn bản có vector gần nhất trong cơ sở dữ liệu vector.
-    4.  **Generation:** Sử dụng một Mô hình Ngôn ngữ Lớn (LLM) như [Tên LLM, ví dụ: GPT-4, Llama 3, Gemini] kết hợp với câu hỏi gốc và các đoạn văn bản đã tìm được (context) để sinh ra câu trả lời cuối cùng.
-- **Thư viện/Framework:** Sử dụng [Tên thư viện RAG, ví dụ: LangChain, LlamaIndex] để tích hợp các thành phần trên.
-- **Chi tiết:** [Mô tả thêm về cấu hình RAG, cách chọn top-k văn bản, cách xây dựng prompt cho LLM.]
+    4.  **Generation:** Sử dụng một Mô hình Ngôn ngữ Lớn (LLM) như Gemini kết hợp với câu hỏi gốc và các đoạn văn bản đã tìm được để sinh ra câu trả lời cuối cùng.
+- **Chi tiết:** 
+
 
 ### 3. Xây dựng API
 
