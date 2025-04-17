@@ -2,7 +2,7 @@
 RAG-based Chatbot for retail e-commerce
 
 ## Mục lục
-
+- [Thành viên](#Thành-viên)
 - [Giới thiệu](#giới-thiệu)
 - [Workflow Dự án](#workflow-dự-án)
   - [1. Thu thập dữ liệu (Crawl data)](#1-thu-thập-dữ-liệu-crawl-data)
@@ -14,7 +14,12 @@ RAG-based Chatbot for retail e-commerce
   - [Xây dựng/Chạy RAG](#xây-dựngchạy-rag)
   - [Khởi chạy API](#khởi-chạy-api)
 - [Công nghệ sử dụng](#công-nghệ-sử-dụng)
-- [Thành viên](#liên-hệ)
+
+## Thành viên
+- 23C01027 - Lê Nguyễn Thuỳ Dương 
+- 23C01034 - Nguyễn Thiên Ngân
+- 23C01044 - Võ Đức Trọng
+
 
 ## Giới thiệu
 
