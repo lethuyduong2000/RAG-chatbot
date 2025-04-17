@@ -39,10 +39,9 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 ### 1. Thu thập dữ liệu (Crawl data)
 
-- **Mục tiêu:** Thu thập dữ liệu văn bản thô từ [Nguồn dữ liệu cụ thể, ví dụ: trang web ABC, tài liệu XYZ].
-- **Phương pháp:** Sử dụng [Tên thư viện/framework crawl, ví dụ: Scrapy, BeautifulSoup, Selenium] để tự động trích xuất nội dung cần thiết.
-- **Lưu trữ:** Dữ liệu thô được làm sạch và lưu trữ dưới dạng [Định dạng file, ví dụ: JSON, CSV, text files] tại thư mục `[đường_dẫn/tới/dữ_liệu_thô]`.
-- **Chi tiết:** [Mô tả thêm về cấu hình crawler, cách xử lý các trang động (nếu có), hoặc các bước tiền xử lý dữ liệu thô.]
+- **Mục tiêu:** Thu thập dữ liệu văn bản thô từ `https://namperfume.net`.
+- **Phương pháp:** Sử dụng BeautifulSoup để tự động trích xuất nội dung cần thiết.
+- **Lưu trữ:** Dữ liệu thô được làm sạch và lưu trữ dưới dạng CSV tại thư mục `data/namperfume_product.csv`.
 
 ### 2. Xây dựng RAG (Retrieval-Augmented Generation)
 
