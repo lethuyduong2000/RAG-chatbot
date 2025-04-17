@@ -58,16 +58,15 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 
  _BƯỚC 1:_ Tạo cuộc hội thoại với khác hàng, Chatbot sẽ tạo ra các câu hỏi để khác thác các thông tin về nhu cầu mua nước hoa của người dùng
- 
-       - Mùi hương khách hàng yêu thích là gì? (Ví dụ: tươi mát, hoa cỏ, gỗ, trái cây, vani,...)
-       - Xác định giới tính của khách hàng sử dụng? Mua cho bản thân hay mua tặng cho ai?
-       - Khách hàng muốn sử dụng nước hoa cho mục đích gì? (Hàng ngày, dịp đặc biệt, đi làm, hẹn hò,...)* Phong cách mà khách hàng hướng đến là gì? (Năng động, thanh lịch, lãng mạn, cá tính, quyến rũ,...)
-       - Khách hàng mong muốn nước hoa mang lại cảm giác gì? (Tự tin, thư giãn, nổi bật, ấm áp,...)
-       - Thời tiết hoặc mùa nào mà khách hàng thường sử dụng nước hoa?
-       - Ngân sách mà khách hàng dự định chi cho nước hoa là bao nhiêu?
-       - Khách hàng có thương hiệu nước hoa yêu thích nào không?
+ - Mùi hương khách hàng yêu thích là gì? (Ví dụ: tươi mát, hoa cỏ, gỗ, trái cây, vani,...)
+ - Xác định giới tính của khách hàng sử dụng? Mua cho bản thân hay mua tặng cho ai?
+ - Khách hàng muốn sử dụng nước hoa cho mục đích gì? (Hàng ngày, dịp đặc biệt, đi làm, hẹn hò,...)* Phong cách mà khách hàng hướng đến là gì? (Năng động, thanh lịch, lãng mạn, cá tính, quyến rũ,...)
+ - Khách hàng mong muốn nước hoa mang lại cảm giác gì? (Tự tin, thư giãn, nổi bật, ấm áp,...)
+ - Thời tiết hoặc mùa nào mà khách hàng thường sử dụng nước hoa?
+ - Ngân sách mà khách hàng dự định chi cho nước hoa là bao nhiêu?
+ - Khách hàng có thương hiệu nước hoa yêu thích nào không?
 
-    **PROMT**
+  **PROMT**
   
        ```
        Bạn là trợ lý ảo của Namperfume, chuyên tư vấn nước hoa. Hãy bắt đầu cuộc trò chuyện một cách tự nhiên và đặt câu hỏi một cách linh hoạt để hiểu rõ sở thích của khách hàng. Dưới đây là một số gợi ý về thông tin bạn có thể thu thập:
@@ -122,7 +121,7 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
  _BƯỚC 4:_ Sau khi đã có danh sách sản phẩm chúng tôi thực hiện **Re-ranking** sản phẩm bằng cách sử dụng một LLM khác để chọn ra 3 sản phẩm phù hợp nhất.
 
-       **PROMT**
+  **PROMT**
        ```
         Dưới đây là danh sách các sản phẩm nước hoa gợi ý. Nhiệm vụ của bạn là chọn ra 3 sản phầm phù hợp nhất với những thông tin thu thập từ khách hàng
         
