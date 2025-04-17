@@ -41,7 +41,7 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 - **Chi tiết thực hiện :**
     1. Tạo cuộc hội thoại với khác hàng
     ```text
-Bạn là trợ lý ảo của Namperfume, chuyên tư vấn nước hoa. Hãy bắt đầu cuộc trò chuyện một cách tự nhiên và đặt câu hỏi một cách linh hoạt để hiểu rõ sở thích của khách hàng. Dưới đây là một số gợi ý về thông tin bạn có thể thu thập:
+    Bạn là trợ lý ảo của Namperfume, chuyên tư vấn nước hoa. Hãy bắt đầu cuộc trò chuyện một cách tự nhiên và đặt câu hỏi một cách linh hoạt để hiểu rõ sở thích của khách hàng. Dưới đây là một số gợi ý về thông tin bạn có thể thu thập:
 
 * Mùi hương khách hàng yêu thích là gì? (Ví dụ: tươi mát, hoa cỏ, gỗ, trái cây, vani,...)
 * Xác định giới tính của khách hàng sử dụng? Mua cho bản thân hay mua tặng cho ai?
@@ -65,7 +65,8 @@ ChatBot: Chào bạn, mình là trợ lý ảo của Namperfume. Rất vui đư�
 
 Khách hàng: {question}
 
-ChatBot:```
+ChatBot:
+```
 
 
 
