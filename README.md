@@ -5,9 +5,9 @@ RAG-based Chatbot for retail e-commerce
 - [Thành viên](#Thành-viên)
 - [Giới thiệu](#giới-thiệu)
 - [Workflow Dự án](#workflow-dự-án)
-  - [1. Thu thập dữ liệu (Crawl data)](#1-thu-thập-dữ-liệu-crawl-data)
-  - [2. Xây dựng RAG (Retrieval-Augmented Generation)](#2-xây-dựng-rag-retrieval-augmented-generation)
-  - [3. Xây dựng API](#3-xây-dựng-api)
+  - [1. Thu thập dữ liệu](#1-thu-thập-dữ-liệu-crawl-data)
+  - [2. Xây dựng RAG](#2-xây-dựng-rag-retrieval-augmented-generation)
+  - [3. API](#3-xây-dựng-api)
 - [Cài đặt](#cài-đặt)
 - [Sử dụng](#sử-dụng)
   - [Chạy Crawler](#chạy-crawler)
@@ -137,7 +137,9 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 ### 3. Xây dựng API
 
 - **Mục tiêu:** Cung cấp một giao diện lập trình ứng dụng (API) để người dùng hoặc các ứng dụng khác có thể tương tác với hệ thống RAG.
-- **Framework:** Xây dựng bằng [Tên API framework, ví dụ: FastAPI, Flask, Django REST framework].
+- **🛠️ Technologies:**
+    - `FastAPI` for building RESTful APIs.
+    - `uvicorn` for development server
 - **Endpoints:**
     - `POST /query`: Nhận câu hỏi từ người dùng, xử lý qua hệ thống RAG và trả về câu trả lời.
     - `GET /health`: Kiểm tra tình trạng hoạt động của API.
@@ -146,3 +148,19 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 ## Cài đặt
 
+### Create virtual env and install dependencies
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+### Run the API
+```bash
+uvicorn src.api.main:app --reload
+```
+### Set environment variables
+```
+sender_email=your-email@gmail.com
+sender_password=your-email-password
+GEMINI_API_KEY=your-gemini-api-key
+```
