@@ -33,17 +33,23 @@ Dự án này nhằm giải quyết vấn đề đó bằng cách xây dựng m�
 
 Bằng cách sử dụng kỹ thuật **Retrieval-Augmented Generation (RAG)** dựa trên dữ liệu đã thu thập, chatbot có thể cung cấp các câu trả lời chính xác và phù hợp với ngữ cảnh, từ đó nâng cao trải nghiệm mua sắm và giúp khách hàng đưa ra quyết định tốt hơn.
 
-## Workflow Dự án
+## 🚀 Features
+- 💬 Chatbot UI powered by Streamlit to handle queries.
+- 🔎 FastAPI backend with RAG to suggest perfumes.
+- 📩 Email confirmation after placing an order.
+- 📦 Order form triggered only when the user confirms interest in a product.
+
+## Workflow
 
 Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
-### 1. Thu thập dữ liệu (Crawl data)
+### 1. Thu thập dữ liệu
 
 - **Mục tiêu:** Thu thập dữ liệu văn bản thô từ `https://namperfume.net`.
 - **Phương pháp:** Sử dụng BeautifulSoup để tự động trích xuất nội dung cần thiết.
 - **Lưu trữ:** Dữ liệu thô được làm sạch và lưu trữ dưới dạng CSV tại thư mục `data/namperfume_product.csv`.
 
-### 2. Xây dựng RAG (Retrieval-Augmented Generation)
+### 2. Xây dựng RAG
 
 - **Mục tiêu:** Xây dựng một hệ thống có khả năng tìm kiếm thông tin liên quan từ kho dữ liệu đã thu thập và sử dụng thông tin đó để tạo ra câu trả lời mạch lạc, chính xác cho câu hỏi của người dùng.
 - **Các bước chính:**
@@ -65,7 +71,7 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
  - Ngân sách mà khách hàng dự định chi cho nước hoa là bao nhiêu?
  - Khách hàng có thương hiệu nước hoa yêu thích nào không?
 
-  **PROMT**
+  **PROMPT**
   
        ```
        Bạn là trợ lý ảo của Namperfume, chuyên tư vấn nước hoa. Hãy bắt đầu cuộc trò chuyện một cách tự nhiên và đặt câu hỏi một cách linh hoạt để hiểu rõ sở thích của khách hàng. Dưới đây là một số gợi ý về thông tin bạn có thể thu thập:
@@ -154,13 +160,13 @@ python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
-### Run the API
-```bash
-uvicorn src.api.main:app --reload
-```
 ### Set environment variables
 ```
 sender_email=your-email@gmail.com
 sender_password=your-email-password
 GEMINI_API_KEY=your-gemini-api-key
+```
+### Run the API
+```bash
+uvicorn src.api.main:app --reload
 ```
