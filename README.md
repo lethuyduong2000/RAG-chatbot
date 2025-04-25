@@ -23,7 +23,7 @@ RAG-based Chatbot for retail e-commerce
 
 ## Giới thiệu
 
-Việc lựa chọn một loại nước hoa phù hợp thường có thể là một trải nghiệm khó khăn với vô số lựa chọn khác nhau. Khách hàng thường cần tư vấn dựa trên sở thích cá nhân (nhóm hương, dịp sử dụng, độ lưu hương mong muốn), hoặc đơn giản là muốn tìm hiểu thông tin chi tiết về một sản phẩm cụ thể.
+Việc lựa chọn một loại nước hoa phù hợp có thể là một trải nghiệm khó khăn với vô số lựa chọn khác nhau. Khách hàng thường cần tư vấn dựa trên sở thích cá nhân (nhóm hương, dịp sử dụng, độ lưu hương mong muốn), hoặc đơn giản là muốn tìm hiểu thông tin chi tiết về một sản phẩm cụ thể.
 
 Dự án này nhằm giải quyết vấn đề đó bằng cách xây dựng một **Chatbot tư vấn nước hoa thông minh**. Mục tiêu là tạo ra một trợ lý ảo có khả năng:
 
@@ -34,10 +34,9 @@ Dự án này nhằm giải quyết vấn đề đó bằng cách xây dựng m�
 Bằng cách sử dụng kỹ thuật **Retrieval-Augmented Generation (RAG)** dựa trên dữ liệu đã thu thập, chatbot có thể cung cấp các câu trả lời chính xác và phù hợp với ngữ cảnh, từ đó nâng cao trải nghiệm mua sắm và giúp khách hàng đưa ra quyết định tốt hơn.
 
 ## 🚀 Features
-- 💬 Chatbot UI powered by Streamlit to handle queries.
-- 🔎 FastAPI backend with RAG to suggest perfumes.
-- 📩 Email confirmation after placing an order.
-- 📦 Order form triggered only when the user confirms interest in a product.
+- 💬 Giao diện chatbot sử dụng Streamlit để xử lý các câu hỏi từ người dùng.
+- 🔎 Backend sử dụng FastAPI kết hợp với RAG để đề xuất nước hoa phù hợp.
+- 📩 Gửi email xác nhận sau khi người dùng đặt hàng.
 
 ## Workflow
 
@@ -45,9 +44,9 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 ### 1. Thu thập dữ liệu
 
-- **Mục tiêu:** Thu thập dữ liệu văn bản thô từ `https://namperfume.net`.
+- **Mục tiêu:** Thu thập dữ liệu sản phẩm nước hoa.
 - **Phương pháp:** Sử dụng BeautifulSoup để tự động trích xuất nội dung cần thiết.
-- **Lưu trữ:** Dữ liệu thô được làm sạch và lưu trữ dưới dạng CSV tại thư mục `data/namperfume_product.csv`.
+- **Lưu trữ:** Dữ liệu thô được làm sạch và lưu trữ vào vector database ChromeDB.
 
 ### 2. Xây dựng RAG
 
@@ -144,8 +143,8 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 
 - **Mục tiêu:** Cung cấp một giao diện lập trình ứng dụng (API) để người dùng hoặc các ứng dụng khác có thể tương tác với hệ thống RAG.
 - **🛠️ Technologies:**
-    - `FastAPI` for building RESTful APIs.
-    - `uvicorn` for development server
+    - `FastAPI` để xây dựng các API dạng RESTful.
+    - `uvicorn` dùng làm server để chạy ứng dụng.
 - **Endpoints:**
     - `POST /query`: Nhận câu hỏi từ người dùng, xử lý qua hệ thống RAG và trả về câu trả lời.
     - `GET /health`: Kiểm tra tình trạng hoạt động của API.
