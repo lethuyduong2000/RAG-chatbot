@@ -148,7 +148,9 @@ Quy trình tổng thể của dự án bao gồm ba giai đoạn chính:
 - **Endpoints:**
     - `POST /query`: Nhận câu hỏi từ người dùng, xử lý qua hệ thống RAG và trả về câu trả lời.
     - `GET /health`: Kiểm tra tình trạng hoạt động của API.
-    - `[Thêm các endpoints khác nếu có]`
+    -  `POST /chat`: Gửi câu hỏi từ người dùng để nhận phản hồi từ chatbot (sử dụng RAG để tư vấn nước hoa phù hợp).
+
+
 - **Chi tiết:** [Mô tả về định dạng input/output của API, cách xác thực (nếu có), ví dụ về request/response.]
 
 ## Cài đặt
